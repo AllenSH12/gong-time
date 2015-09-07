@@ -1,0 +1,17 @@
+{
+  "name": "gong-time",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "midi-launchpad": "^1.0.3",
+    "speaker": "^0.2.5",
+    "wav": "^1.0.0"
+  }
+}
