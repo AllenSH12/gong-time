@@ -3,10 +3,17 @@
 'use strict';
 
 var fs = require('fs');
+var path = require('path');
+var argv = require('yargs').argv;
 var wav = require('wav');
 var Speaker = require('speaker');
-var gongs = require('./gongs.json');
 var GRID_SIZE = 4;
+var EFFECTS_PATH = argv.e;
+
+var gongs = fs.readdirSync(EFFECTS_PATH)
+  .map(function(effectName) {
+    return path.join(EFFECTS_PATH, effectName);
+  });
 
 var midiConnector = require('midi-launchpad').connect(0);
 
@@ -52,7 +59,6 @@ function showGongChoices(launchpad) {
   }
 }
 
-// TODO: Allow to choose b/w multiple gong sounds
 function play(sound) {
   var file = fs.createReadStream(sound);
   var reader = new wav.Reader();
@@ -60,7 +66,6 @@ function play(sound) {
   reader.on('format', function(format) {
     reader.pipe(new Speaker(format));
   });
-
 
   file.pipe(reader);
 }

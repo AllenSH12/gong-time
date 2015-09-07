@@ -12,6 +12,7 @@
   "dependencies": {
     "midi-launchpad": "^1.0.3",
     "speaker": "^0.2.5",
-    "wav": "^1.0.0"
+    "wav": "^1.0.0",
+    "yargs": "^3.24.0"
   }
 }
