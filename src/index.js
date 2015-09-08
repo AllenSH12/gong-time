@@ -10,6 +10,8 @@ var Speaker = require('speaker');
 var GRID_SIZE = 4;
 var EFFECTS_PATH = argv.e;
 
+var midiConnector = require('midi-launchpad').connect(0);
+
 var gongs = fs.readdirSync(EFFECTS_PATH)
   .filter(function(fileName) {
     return fileName !== '.DS_Store';
@@ -17,8 +19,6 @@ var gongs = fs.readdirSync(EFFECTS_PATH)
   .map(function(effectName) {
     return path.join(EFFECTS_PATH, effectName);
   });
-
-var midiConnector = require('midi-launchpad').connect(0);
 
 midiConnector.on('ready', function(launchpad) {
   console.log('It\'s gong time');
