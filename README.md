@@ -1,6 +1,6 @@
 # It's gong time!
 
-![This guy's stoked for gong time](/static/gong.jpg)
+![This guy's stoked for gong time](static/gong.jpg)
 
 An assortment of gong sound effects and the ability to play them via the [Novation Launchpad](http://global.novationmusic.com/launch/launchpad).
 
