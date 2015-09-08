@@ -11,6 +11,9 @@ var GRID_SIZE = 4;
 var EFFECTS_PATH = argv.e;
 
 var gongs = fs.readdirSync(EFFECTS_PATH)
+  .filter(function(fileName) {
+    return fileName !== '.DS_Store';
+  })
   .map(function(effectName) {
     return path.join(EFFECTS_PATH, effectName);
   });
@@ -62,6 +65,8 @@ function showGongChoices(launchpad) {
 function play(sound) {
   var file = fs.createReadStream(sound);
   var reader = new wav.Reader();
+
+  console.log('Playing: ', sound);
 
   reader.on('format', function(format) {
     reader.pipe(new Speaker(format));
